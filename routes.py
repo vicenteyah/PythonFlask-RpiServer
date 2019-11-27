@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from subprocess import  call
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -13,6 +14,7 @@ def home():
 
 @app.route('/data',methods=['GET'])
 def data():
+    call(["python2","raspduino2.py"])
     data = "signal not found yet"
     return jsonify(data)
 
